@@ -3,14 +3,14 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:#fff1dc;color:#432d25;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif}.app{max-width:540px;margin:auto;padding:12px}.screen{display:none}.on{display:block}.card{background:#fff;border:2px solid #efd6b6;border-radius:25px;padding:18px;text-align:center}.title{font-size:38px;font-weight:1000;color:#854325;line-height:1.05}.sub{font-weight:900;font-size:18px;margin:8px}.card img{width:min(70vw,300px);max-height:320px;object-fit:contain}.btn{border:0;border-radius:999px;background:#ff6687;color:white;font-weight:1000;font-size:20px;padding:14px 26px;box-shadow:0 6px 0 #d34b68}.btn:disabled{opacity:.45}.how{text-align:left;background:#fff8ef;border-radius:16px;padding:12px;margin-top:15px;font-size:13px;line-height:1.6}.hud{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:7px}.stat{background:#fff;border:2px solid #efd6b6;border-radius:14px;text-align:center;font-weight:900;padding:6px}.stat b{display:block;font-size:21px}
 #box{position:relative;height:min(75vh,680px);min-height:520px;overflow:hidden;border:3px solid #c88b58;border-radius:22px;background:linear-gradient(#fff7df 0 73%,#d9a56f 73% 76%,#f1c990 76%);touch-action:none}#hint{position:absolute;top:7px;left:50%;transform:translateX(-50%);background:white;border:2px solid #8a5332;border-radius:99px;padding:5px 11px;font-size:12px;font-weight:1000;white-space:nowrap}
 #dropper{position:absolute;top:45px;left:50%;width:88px;height:88px;transform:translateX(-50%);z-index:20;pointer-events:none}#dropper img{width:100%;height:100%;object-fit:contain}.guide{position:absolute;top:128px;bottom:135px;border-left:2px dashed #b99a7c;opacity:.45}.tower{position:absolute;inset:0 0 115px;pointer-events:none}.piece{position:absolute;width:92px;height:64px;object-fit:contain;filter:drop-shadow(0 3px 2px #79502d66);transform-origin:center}.platform{position:absolute;bottom:105px;left:50%;transform:translateX(-50%);width:150px;height:15px;border-radius:50%;background:#a9663d;box-shadow:0 5px #754327}.umeko{position:absolute;right:-3px;bottom:0;width:128px;z-index:8}.bubble{position:absolute;right:90px;bottom:94px;z-index:9;background:white;border:2px solid #8a5332;border-radius:14px;padding:5px 8px;font-size:12px;font-weight:1000;white-space:nowrap}.danger{display:none;position:absolute;inset:0;border:7px solid #df454599;pointer-events:none;animation:d .4s infinite alternate}@keyframes d{to{opacity:.3;border-width:2px}}
-.controls{position:absolute;left:8px;right:8px;bottom:10px;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:8px;z-index:30}.ctrl{border:0;border-radius:14px;padding:13px 4px;font-size:20px;font-weight:1000;color:white;background:#8a5332}.drop{background:#e9516d}.toast{position:absolute;top:145px;left:50%;transform:translateX(-50%);z-index:50;background:#432d25ee;color:white;border-radius:99px;padding:7px 12px;font-weight:1000;opacity:0;white-space:nowrap}.big{font-size:42px;font-weight:1000;color:#aa552b}.msg{font-size:19px;font-weight:1000;line-height:1.5;margin:10px}
+.controls{position:absolute;left:35px;right:35px;bottom:10px;display:block;z-index:30}.controls .drop{width:100%;font-size:23px}.ctrl{border:0;border-radius:14px;padding:13px 4px;font-size:20px;font-weight:1000;color:white;background:#8a5332}.drop{background:#e9516d}.toast{position:absolute;top:145px;left:50%;transform:translateX(-50%);z-index:50;background:#432d25ee;color:white;border-radius:99px;padding:7px 12px;font-weight:1000;opacity:0;white-space:nowrap}.big{font-size:42px;font-weight:1000;color:#aa552b}.msg{font-size:19px;font-weight:1000;line-height:1.5;margin:10px}
 </style></head><body><main class="app">
-<section id="start" class="screen on"><div class="card"><div class="title">🥯 ベーグル<br>積めるんかい。</div><div class="sub">〜買えたからって安心すな〜</div><img src="./umeko_stack.PNG"><p><b>買えた。そこまではええ。<br>今度は落とさんと積め🤣</b></p><button id="startBtn" class="btn">積み始める</button><div class="how"><b>遊び方</b><br>左右どこでも落とせるで。横に並べて土台を作って、2個のベーグルにまたがせればピラミッド積みもOK🥯<br>空中に落としたら失敗。高くなると自動で縮小して、まだまだ積める。</div></div></section>
-<section id="game" class="screen"><div class="hud"><div class="stat">高さ<b id="num">0</b></div><div class="stat">SCORE<b id="score">0</b></div><div class="stat">安定度<b id="stable">100%</b></div></div><div id="box"><div id="hint">左右で動かして、落とせ🥯</div><div id="guide" class="guide"></div><div id="dropper"><img id="next"></div><div id="tower" class="tower"></div><div class="platform"></div><img id="umeko" class="umeko" src="./umeko_stack.PNG"><div id="bubble" class="bubble">来い来い来い‼️</div><div id="danger" class="danger"></div><div id="toast" class="toast"></div><div class="controls"><button id="left" class="ctrl">←</button><button id="drop" class="ctrl drop">落とす‼️</button><button id="right" class="ctrl">→</button></div></div></section>
+<section id="start" class="screen on"><div class="card"><div class="title">🥯 ベーグル<br>積めるんかい。</div><div class="sub">〜買えたからって安心すな〜</div><img src="./umeko_stack.PNG"><p><b>買えた。そこまではええ。<br>今度は落とさんと積め🤣</b></p><button id="startBtn" class="btn">積み始める</button><div class="how"><b>遊び方</b><br>ベーグルは上を勝手に左右往復🥯 好きな位置で「落とす‼️」だけ。時間が経つほど速くなるで。<br>サイズは小・普通・大がランダム。横に並べて土台を作ればピラミッド積みもOK！</div></div></section>
+<section id="game" class="screen"><div class="hud"><div class="stat">高さ<b id="num">0</b></div><div class="stat">SCORE<b id="score">0</b></div><div class="stat">安定度<b id="stable">100%</b></div></div><div id="box"><div id="hint">左右で動かして、落とせ🥯</div><div id="guide" class="guide"></div><div id="dropper"><img id="next"></div><div id="tower" class="tower"></div><div class="platform"></div><img id="umeko" class="umeko" src="./umeko_stack.PNG"><div id="bubble" class="bubble">来い来い来い‼️</div><div id="danger" class="danger"></div><div id="toast" class="toast"></div><div class="controls"><button id="drop" class="ctrl drop">落とす‼️</button></div></div></section>
 <section id="result" class="screen"><div class="card"><h1 id="rtitle">崩壊💥</h1><img id="rimg" src="./umeko_stack_shake.PNG"><div class="big"><span id="final">0</span>点</div><div id="msg" class="msg"></div><button id="retry" class="btn">もう一回積む</button></div></section>
 </main><script>
 (()=>{
-const $=q=>document.querySelector(q), box=$("#box"), tower=$("#tower"), dropper=$("#dropper");
+const $=q=>document.querySelector(q),box=$("#box"),tower=$("#tower"),dropper=$("#dropper");
 const T=[
  ["plain","./bagel_plain.PNG",10,0,42],
  ["cheese","./bagel_cheese.PNG",20,7,22],
@@ -18,14 +18,50 @@ const T=[
  ["blueberry","./bagel_blueberry.PNG",30,5,15],
  ["rare","./bagel_rare.PNG",100,9,6]
 ];
-const PW=92, PH=48, BASE_Y=0;
-let play=false,x=0,score=0,n=0,stable=100,cur=null,pieces=[],timer=null;
+const SIZES=[
+ {name:"小",scale:.72,bonus:8},
+ {name:"普通",scale:1,bonus:0},
+ {name:"大",scale:1.28,bonus:15}
+];
+const BASEW=92,BASEH=48;
+let play=false,x=50,dir=1,score=0,n=0,stable=100,cur=null,pieces=[];
+let startTime=0,lastFrame=0,raf=0;
 
 function screen(id){document.querySelectorAll(".screen").forEach(e=>e.classList.remove("on"));$("#"+id).classList.add("on")}
-function pick(){let r=Math.random()*100,a=0;for(const t of T){a+=t[4];if(r<a)return t}return T[0]}
-function setX(v){x=Math.max(PW/2,Math.min(box.clientWidth-PW/2,v));dropper.style.left=x+"px";$("#guide").style.left=x+"px"}
-function prep(){if(!play)return;cur=pick();$("#next").src=cur[1];setX(box.clientWidth/2)}
-function toast(t){let e=$("#toast");e.textContent=t;e.style.opacity=1;setTimeout(()=>e.style.opacity=0,760)}
+function weightedType(){let r=Math.random()*100,a=0;for(const t of T){a+=t[4];if(r<a)return t}return T[0]}
+function randomSize(){let r=Math.random();return r<.27?SIZES[0]:r<.75?SIZES[1]:SIZES[2]}
+function setX(v){
+ let hw=(cur?cur.w:BASEW)/2;
+ x=Math.max(hw,Math.min(box.clientWidth-hw,v));
+ dropper.style.left=x+"px";$("#guide").style.left=x+"px"
+}
+function elapsed(){return play?(performance.now()-startTime)/1000:0}
+function speed(){
+ let sec=elapsed();
+ return Math.min(360,95+sec*5.5); // px/sec: steadily accelerates
+}
+function animate(t){
+ if(!play)return;
+ if(!lastFrame)lastFrame=t;
+ let dt=Math.min(.035,(t-lastFrame)/1000);lastFrame=t;
+ if(cur){
+   let hw=cur.w/2, nx=x+dir*speed()*dt;
+   if(nx>=box.clientWidth-hw){nx=box.clientWidth-hw;dir=-1}
+   if(nx<=hw){nx=hw;dir=1}
+   setX(nx);
+ }
+ raf=requestAnimationFrame(animate);
+}
+function prep(){
+ if(!play)return;
+ let type=weightedType(),sz=randomSize();
+ cur={type,sz,w:BASEW*sz.scale,h:BASEH*sz.scale};
+ $("#next").src=type[1];
+ dropper.style.width=cur.w+"px";dropper.style.height=Math.max(58,88*sz.scale)+"px";
+ x=dir>0?cur.w/2:box.clientWidth-cur.w/2;setX(x);
+ $("#hint").textContent=`${sz.name}ベーグル｜速度 ${Math.round(speed())}`;
+}
+function toast(t){let e=$("#toast");e.textContent=t;e.style.opacity=1;setTimeout(()=>e.style.opacity=0,700)}
 function update(){
  $("#num").textContent=n;$("#score").textContent=score;$("#stable").textContent=Math.max(0,Math.round(stable))+"%";
  let bad=n>=10||stable<55;
@@ -33,82 +69,72 @@ function update(){
  $("#bubble").textContent=n>=30?"もうパン屋やれ‼️":n>=20?"まだ積むんかい‼️":bad?"ちょ待てプルプルする‼️":"来い来い来い‼️";
  $("#danger").style.display=bad?"block":"none";
 }
-function start(){play=true;score=0;n=0;stable=100;cur=null;pieces=[];tower.innerHTML="";screen("game");update();setTimeout(prep,40)}
-
-function overlap(a,b){
- return Math.max(0, Math.min(a.x+PW/2,b.x+PW/2)-Math.max(a.x-PW/2,b.x-PW/2));
+function start(){
+ cancelAnimationFrame(raf);play=true;score=0;n=0;stable=100;cur=null;pieces=[];tower.innerHTML="";
+ startTime=performance.now();lastFrame=0;dir=1;screen("game");update();prep();raf=requestAnimationFrame(animate)
 }
-function findLanding(cx){
- // Ground if no supporting pieces under x.
- let candidates=pieces.filter(p=>overlap({x:cx},p)>12).sort((a,b)=>b.y-a.y);
- if(!candidates.length) return {y:BASE_Y,support:[],coverage:1};
-
- // Find highest surface(s) intersecting the new bagel.
- let topY=candidates[0].y+PH;
- let near=candidates.filter(p=>Math.abs((p.y+PH)-topY)<8 && overlap({x:cx},p)>12);
- let coverage=0;
- near.forEach(p=>coverage+=overlap({x:cx},p));
- coverage=Math.min(1,coverage/PW);
- return {y:topY,support:near,coverage};
+function overlapAt(cx,w,p){
+ return Math.max(0,Math.min(cx+w/2,p.x+p.w/2)-Math.max(cx-w/2,p.x-p.w/2))
+}
+function landing(cx,w){
+ let c=pieces.filter(p=>overlapAt(cx,w,p)>Math.min(10,w*.12)).sort((a,b)=>(b.y+b.h)-(a.y+a.h));
+ if(!c.length)return {y:0,support:[],coverage:1};
+ let top=c[0].y+c[0].h;
+ let near=c.filter(p=>Math.abs((p.y+p.h)-top)<7 && overlapAt(cx,w,p)>8);
+ let intervals=near.map(p=>[Math.max(cx-w/2,p.x-p.w/2),Math.min(cx+w/2,p.x+p.w/2)]).sort((a,b)=>a[0]-b[0]);
+ let covered=0,end=-1e9;
+ intervals.forEach(([l,r])=>{l=Math.max(l,end);if(r>l){covered+=r-l;end=r}});
+ return {y:top,support:near,coverage:Math.min(1,covered/w)}
 }
 function drop(){
  if(!play||!cur)return;
+ let c=cur;cur=null;
  let cx=x;
- // Flavor quirks before landing.
- if(cur[0]==="cheese")cx+=(Math.random()-.5)*15;
- if(cur[0]==="blueberry")cx+=(Math.random()-.5)*11;
- cx=Math.max(PW/2,Math.min(box.clientWidth-PW/2,cx));
+ if(c.type[0]==="cheese")cx+=(Math.random()-.5)*14;
+ if(c.type[0]==="blueberry")cx+=(Math.random()-.5)*10;
+ cx=Math.max(c.w/2,Math.min(box.clientWidth-c.w/2,cx));
+ let land=landing(cx,c.w);
+ if(land.y>0&&land.coverage<.22)return miss(c,cx,"そこ空中や‼️");
 
- let land=findLanding(cx);
- // Allow ground row freely; above ground needs enough support.
- if(land.y>0 && land.coverage<0.24){return fallMiss("そこ空中や‼️")}
-
- // If bridging two bagels, reward stability. One-edge support costs stability.
  let supportBonus=land.support.length>=2?8:0;
- let edgePenalty=land.y===0?0:Math.max(0,(0.58-land.coverage)*38);
- let flavorPenalty=cur[3];
- stable=Math.min(100,stable-edgePenalty-flavorPenalty+supportBonus);
+ let edgePenalty=land.y===0?0:Math.max(0,(.56-land.coverage)*42);
+ let sizePenalty=c.sz.name==="大"&&land.y>120?5:0;
+ stable=Math.min(100,stable-edgePenalty-c.type[3]-sizePenalty+supportBonus);
 
- let p={x:cx,y:land.y,type:cur,rot:(Math.random()-.5)*5,el:null};
- let el=document.createElement("img");el.src=cur[1];el.className="piece";
- el.style.left=(cx-PW/2)+"px";el.style.bottom=land.y+"px";
- el.style.transform=`rotate(${p.rot}deg)`;tower.appendChild(el);p.el=el;pieces.push(p);
+ let p={x:cx,y:land.y,w:c.w,h:c.h,type:c.type,sz:c.sz,el:null};
+ let el=document.createElement("img");el.src=c.type[1];el.className="piece";
+ el.style.width=c.w+"px";el.style.height=(64*c.sz.scale)+"px";
+ el.style.left=(cx-c.w/2)+"px";el.style.bottom=land.y+"px";
+ el.style.transform=`rotate(${(Math.random()-.5)*5}deg)`;
+ tower.appendChild(el);p.el=el;pieces.push(p);
 
- let heightBonus=Math.round(land.y/PH)*3;
- score+=cur[2]+heightBonus+(land.support.length>=2?15:0);
- n++;
+ score+=c.type[2]+c.sz.bonus+Math.round(land.y/45)*3+(land.support.length>=2?15:0);n++;
  if(land.support.length>=2)toast("✨ 2個で支えた！安定！");
- else if(land.y===0)toast("🥯 土台GET");
- else if(cur[0]==="cheese")toast("🧀 ツルッ…");
- else if(cur[0]==="blueberry")toast("🫐 ボヨンッ");
- else if(cur[0]==="rare")toast("✨ 激レア！");
- update();
-
- if(stable<=0)return setTimeout(()=>collapse("欲張りすぎやーー‼️"),180);
- cur=null;
- autoScale();
- setTimeout(prep,180);
+ else if(land.y===0)toast(`🥯 ${c.sz.name} 土台GET`);
+ else if(c.type[0]==="cheese")toast("🧀 ツルッ…");
+ else if(c.type[0]==="blueberry")toast("🫐 ボヨンッ");
+ else if(c.sz.name==="大")toast("🥯 デカッ‼️");
+ update();autoScale();
+ if(stable<=0)return setTimeout(()=>collapse("欲張りすぎやーー‼️"),160);
+ setTimeout(prep,150)
 }
 function autoScale(){
- let maxTop=pieces.reduce((m,p)=>Math.max(m,p.y+PH),0);
- let scale=maxTop>330?Math.max(.68,330/maxTop):1;
- tower.style.transformOrigin="50% 100%";
- tower.style.transform=`scale(${scale})`;
+ let maxTop=pieces.reduce((m,p)=>Math.max(m,p.y+p.h),0);
+ let sc=maxTop>335?Math.max(.62,335/maxTop):1;
+ tower.style.transformOrigin="50% 100%";tower.style.transform=`scale(${sc})`
 }
-function fallMiss(reason){
- if(!cur)return;
- let ghost=document.createElement("img");ghost.src=cur[1];ghost.className="piece";
- ghost.style.left=(x-PW/2)+"px";ghost.style.top="48px";ghost.style.zIndex=25;tower.appendChild(ghost);
- ghost.style.transition="top .55s ease-in,transform .55s,opacity .7s";
- requestAnimationFrame(()=>{ghost.style.top=(box.clientHeight-120)+"px";ghost.style.transform="rotate(130deg)";ghost.style.opacity=".2"});
- cur=null;stable-=14;update();toast(reason);
- setTimeout(()=>{ghost.remove();if(stable<=0)collapse("落としすぎや‼️");else prep()},650);
+function miss(c,cx,reason){
+ let g=document.createElement("img");g.src=c.type[1];g.className="piece";
+ g.style.width=c.w+"px";g.style.height=(64*c.sz.scale)+"px";g.style.left=(cx-c.w/2)+"px";g.style.top="45px";g.style.zIndex=25;tower.appendChild(g);
+ g.style.transition="top .55s ease-in,transform .55s,opacity .65s";
+ requestAnimationFrame(()=>{g.style.top=(box.clientHeight-120)+"px";g.style.transform="rotate(130deg)";g.style.opacity=".15"});
+ stable-=13;update();toast(reason);
+ setTimeout(()=>{g.remove();if(stable<=0)collapse("落としすぎや‼️");else prep()},620)
 }
 function collapse(reason){
- if(!play)return;play=false;cur=null;
- pieces.forEach((p,i)=>{p.el.style.transition="all .7s ease";p.el.style.transform=`translate(${(i%2?1:-1)*(65+i*4)}px,100px) rotate(${(i%2?1:-1)*(45+i*5)}deg)`;p.el.style.opacity=".25"});
- $("#bubble").textContent="あーーーー‼️";
- setTimeout(()=>finish(reason),730);
+ if(!play)return;play=false;cancelAnimationFrame(raf);cur=null;
+ pieces.forEach((p,i)=>{p.el.style.transition="all .7s ease";p.el.style.transform=`translate(${(i%2?1:-1)*(65+i*4)}px,100px) rotate(${(i%2?1:-1)*(45+i*5)}deg)`;p.el.style.opacity=".22"});
+ $("#bubble").textContent="あーーーー‼️";setTimeout(()=>finish(reason),730)
 }
 function finish(reason){
  $("#final").textContent=score;let m,img="./umeko_stack_shake.PNG",title="崩壊💥";
@@ -118,12 +144,8 @@ function finish(reason){
  else if(score<2200){m="かなり積んだ。今日は認めたる。";img="./umeko_stack.PNG";title="生還🥯"}
  else{m="もうパン屋の陳列棚や。";img="./umeko_stack.PNG";title="積み職人👑"}
  $("#rtitle").textContent=title;$("#rimg").src=img;$("#msg").innerHTML=reason+"<br>"+m;screen("result");
- $("#retry").disabled=true;setTimeout(()=>$("#retry").disabled=false,1000);
+ $("#retry").disabled=true;setTimeout(()=>$("#retry").disabled=false,900)
 }
-function move(d){if(play&&cur)setX(x+d*18)}
-$("#left").onpointerdown=e=>{e.preventDefault();move(-1);clearInterval(timer);timer=setInterval(()=>move(-1),70)};
-$("#right").onpointerdown=e=>{e.preventDefault();move(1);clearInterval(timer);timer=setInterval(()=>move(1),70)};
-["pointerup","pointercancel"].forEach(ev=>document.addEventListener(ev,()=>clearInterval(timer)));
 $("#drop").onpointerdown=e=>{e.preventDefault();drop()};
 $("#startBtn").onclick=start;$("#retry").onclick=()=>{if(!$("#retry").disabled)start()};
 })();
